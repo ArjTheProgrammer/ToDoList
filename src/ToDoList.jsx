@@ -7,6 +7,25 @@ export default function ToDoList() {
     function HandleInputChange(event){
         setNewTasks(event.target.value);
     }
+
+    function AddTask(){
+        setTasks(t => [...t, newTasks]);
+        setNewTasks("");
+    }
+
+    function RemoveTask(index){
+
+    }
+
+    function MoveTaskUp(index){
+
+    }
+
+    function MoveTaskDown(index){
+
+    }
+
+
     return(
         <div>
             <h1>To-Do List</h1>
@@ -15,7 +34,9 @@ export default function ToDoList() {
                 placeholder="Enter Tasks..." 
                 value={newTasks} 
                 onChange={HandleInputChange}/>
-                <button className="add-button">Add</button>
+                <button className="add-button" onClick={AddTask}>
+                    Add
+                </button>
             </div>
 
             <ol>
@@ -24,13 +45,13 @@ export default function ToDoList() {
                     <span className="text">
                         {task}
                     </span>
-                    <button className="delete-task">
+                    <button className="delete-task" onClick={() => RemoveTask(index)}>
                         delete
                     </button>
-                    <button className="move-task-up">
+                    <button className="move-task-up" onClick={MoveTaskUp(index)}>
                         up
                     </button>
-                    <button className="move-task-down">
+                    <button className="move-task-down" onClick={MoveTaskDown(index)}>
                         down
                     </button>
                 </li>

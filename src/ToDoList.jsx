@@ -53,17 +53,17 @@ export default function ToDoList() {
 
             <ol>
                 {tasks.map((task, index) => 
-                <li>
+                <li key={index}>
                     <span className="text">
                         {task}
                     </span>
-                    <button className="delete-task" onClick={() => RemoveTask(index)}>
+                    <button className="delete-button" onClick={() => RemoveTask(index)}>
                         delete
                     </button>
-                    <button className="move-task-up" onClick={() => MoveTaskUp(index)}>
+                    <button className="move-button" onClick={() => MoveTaskUp(index)}>
                         up
                     </button>
-                    <button className="move-task-down" onClick={() => MoveTaskDown(index)}>
+                    <button className="move-button" onClick={() => MoveTaskDown(index)}>
                         down
                     </button>
                 </li>

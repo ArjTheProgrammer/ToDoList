@@ -14,7 +14,9 @@ export default function ToDoList() {
     }
 
     function RemoveTask(index){
+        const updateTask = tasks.filter((_, i) => i !== index);
 
+        setTasks(updateTask);
     }
 
     function MoveTaskUp(index){

@@ -29,7 +29,12 @@ export default function ToDoList() {
     }
 
     function MoveTaskDown(index){
-
+        if (index < tasks.length){
+            const updateTasks = [...tasks];
+            [updateTasks[index], updateTasks[index + 1]] =
+             [updateTasks[index + 1], updateTasks[index]];
+             setTasks(updateTasks);
+           }
     }
 
 
@@ -58,7 +63,7 @@ export default function ToDoList() {
                     <button className="move-task-up" onClick={() => MoveTaskUp(index)}>
                         up
                     </button>
-                    <button className="move-task-down" onClick={MoveTaskDown(index)}>
+                    <button className="move-task-down" onClick={() => MoveTaskDown(index)}>
                         down
                     </button>
                 </li>

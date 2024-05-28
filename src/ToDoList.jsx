@@ -20,7 +20,12 @@ export default function ToDoList() {
     }
 
     function MoveTaskUp(index){
-
+       if (index > 0){
+        const updateTasks = [...tasks];
+        [updateTasks[index], updateTasks[index - 1]] =
+         [updateTasks[index - 1], updateTasks[index]];
+         setTasks(updateTasks);
+       }
     }
 
     function MoveTaskDown(index){
@@ -50,7 +55,7 @@ export default function ToDoList() {
                     <button className="delete-task" onClick={() => RemoveTask(index)}>
                         delete
                     </button>
-                    <button className="move-task-up" onClick={MoveTaskUp(index)}>
+                    <button className="move-task-up" onClick={() => MoveTaskUp(index)}>
                         up
                     </button>
                     <button className="move-task-down" onClick={MoveTaskDown(index)}>
